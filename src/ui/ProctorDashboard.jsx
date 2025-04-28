@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ProctorController from '../controller/ProctorController';
-import './ProctorDashboard.css';
+import '../styles/ProctorDashboard.css';
 
 function ProctorDashboard() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { proctor, examCode } = location.state;
   const [students, setStudents] = useState([]);
   const [cheatingAlerts, setCheatingAlerts] = useState([]);
@@ -101,6 +102,11 @@ function ProctorDashboard() {
     }
   };
 
+  const handleLogout = () => {
+    // You could add any cleanup or logout logic here if needed
+    navigate('/');
+  };
+
   return (
     <div className="proctor-dashboard">
       <header className="dashboard-header">
@@ -116,6 +122,9 @@ function ProctorDashboard() {
           <div className={`timer ${timeLeft < 300 ? 'timer-warning' : ''}`}>
             {examEnded ? "Exam Ended" : formatTime(timeLeft)}
           </div>
+          <button onClick={handleLogout} className="logout-button">
+            Logout
+          </button>
         </div>
       </header>
 

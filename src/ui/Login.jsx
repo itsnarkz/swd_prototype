@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StudentController from '../controller/StudentController';
 import ProctorController from '../controller/ProctorController';
-import './Login.css';
+import '../styles/Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -49,6 +49,7 @@ function Login() {
   return (
     <div className="login-container">
       <h1>NEOS Exam System</h1>
+      <h1>SWD392</h1>
       <form onSubmit={handleLogin}>
         <input
           type="email"

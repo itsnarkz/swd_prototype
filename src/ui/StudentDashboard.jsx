@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import StudentController from '../controller/StudentController';
-import './StudentDashboard.css';
+import '../styles/StudentDashboard.css';
 
 function StudentDashboard() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { student, examCode } = location.state;
   const [examSession, setExamSession] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -57,6 +58,11 @@ function StudentDashboard() {
       } else {
         alert('Answers submitted successfully!');
       }
+      
+      // Add slight delay before redirecting to login page to ensure alert is seen
+      setTimeout(() => {
+        navigate('/');
+      }, 1500);
     } else {
       alert('Failed to submit answers. Please try again.');
     }

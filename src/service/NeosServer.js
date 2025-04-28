@@ -135,8 +135,8 @@ const simpleProctors = [
 const createSimpleStudents = () => {
   const students = [];
   for (let i = 0; i < 30; i++) {
-    const id = `S${(900 + i).toString().padStart(3, '0')}`;
-    const name = `Phan Trung Dũng ${i + 1}`;
+    const id = `HE` + parseInt(180000 + i + 1, 10);
+    const name = `Phan Trung Dũng`;
     const email = `dungpt${i + 1}@fpt.edu.vn`;
     students.push(new Student(id, name, email, 'test'));
   }
